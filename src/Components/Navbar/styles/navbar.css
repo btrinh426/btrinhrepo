@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&family=Syncopate&display=swap");
+
+.nav-user {
+    align-content: center;
+    vertical-align: middle;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-family: "Philosopher", sans-serif;
+}
+.logout {
+    margin-right: 20px;
+}
+.happy {
+    font-family: "Syncopate", sans-serif;
+    color: rgb(97, 218, 251);
+    font-weight: bold;
+}
+.reg-log {
+    margin-right: 20px;
+}
+.reg-log:hover {
+    color: rgb(97, 218, 251);
+    background-color: rgba(12, 13, 14, 0.637);
+    border-color: rgb(97, 218, 251);
+}
+.search-button:hover {
+    color: rgb(97, 218, 251);
+    background-color: rgba(148, 159, 170, 0.637);
+    border-color: rgb(97, 218, 251);
+}

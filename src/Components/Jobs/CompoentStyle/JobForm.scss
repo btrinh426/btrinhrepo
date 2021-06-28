@@ -1,0 +1,46 @@
+.form-box {
+    width: 45vw;
+    // height: 75vh;
+    // justify-content: space-evenly;
+    margin-right: 100px;
+    position: absolute;
+    top: 220px;
+    left: 500px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: fuchsia;
+    padding: 15px;
+}
+img {
+    z-index: 5;
+    overflow: visible;
+    position: absolute;
+    top: -180px;
+    left: -330px;
+}
+
+.form-input {
+    height: 6vh; // figure this shit out
+}
+
+#header {
+    text-align: center;
+    color: aliceblue;
+    top: -20px;
+    margin-bottom: 3em;
+}
+.row-test {
+    color: #eee;
+    padding: 0px;
+    margin: 1px;
+    border-radius: 1em;
+}
+.test {
+    color: #eee;
+    padding: 0px;
+    border-style: dashed;
+    border-color: bisque;
+    border-width: 2px;
+    margin: 1px;
+    border-radius: 1em;
+}
