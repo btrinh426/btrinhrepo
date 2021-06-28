@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>PW Execise Template</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="peopleService.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <div class="container ajax sabio"></div>
+
+    <div class="row clone-container"></div>
+
+    <script id="peopleCardTemplate" type="text/template">
+
+        <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-name">Card title</h5>
+              <p class="card-cell">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>       
+    </script>
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        function startUp() {
+
+            peopleService.getPaginated(0, 10)
+                .then(onGetPaginatedSuccess)
+                .catch(onGetPaginatedError);
+
+        }
+
+
+
+        //Ajax Success and Error Handlers
+
+        function onGetPaginatedSuccess(response) {
+            var listOfPeople = response.data.item.pagedItems
+            peopleCycled(listOfPeople)
+        }
+        function onGetPaginatedError(response) {
+            console.warn({ error: response })
+        }
+
+        //Templating code
+
+        function getTemplate() {
+
+            console.log("getTemplate Fired");
+
+            return $($("#peopleCardTemplate").html()).clone();
+        }
+
+        //People Card Loop
+
+        function peopleCycled(peopleList) {
+            console.log("peopleCycled fired");
+
+            for (let index = 0; index < peopleList.length; index++) {
+                const renderedPerson = peopleList[index];
+                console.log(renderedPerson, index)
+                let clone = getTemplate();
+
+                $(clone).find(".card-name").text(renderedPerson.name.first);
+                $(clone).find(".card-cell").text(renderedPerson.cell);
+                $(clone).find("img").attr("src", renderedPerson.picture.large);
+
+                $("div.clone-container").append(clone);
+
+            }
+        }
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Welcome Home</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="services/usersService.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <!-- <div class="container ajax sabio"></div> -->
+
+    <!-- Nav Bar Elements: home people blogs tech companies jobs events -->
+    <!-- <div class="container-fluid" id="nav-container">
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <nav class="home">
+                    <ul class="nav align-items-center">
+                        <img class="img-fluid" id="user-img" style="height:80px;" src="images/planet-express-logo.png">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="friends/friends.html">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tech Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register User</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-auto">
+                <span id="welcome-msg">Welcome User</span>
+                <span><button type="button" class="btn btn-link" id="logout-user">Logout</button></span>
+            </div>
+        </div>
+
+    </div> -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="p-3"><a href="/cohort93/home.html"><img id="user-img" style="height:50px;"
+                        src="images/planet-express-logo.png"></a></div>
+            <div class="col p-3">
+                <nav class="home">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/friends/friends.html">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/blogs/blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/tecco/tech-companies.html">Tech Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/jobs/jobs.html">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/events/events.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/users/users-register.html">Register User</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="p-3">
+                <span id="welcome-msg">Welcome User</span>
+                <button type="button" class="btn btn-sm btn-link" id="logout-user">Logout</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="container">
+        <img src="/cohort93/images/full-cast.jpg">
+    </div> -->
+
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        function startUp() {
+            console.log("startUp is firing")
+            $("#logout-user").on("click", onLogoutClicked)
+            //verify a user is signed in
+            usersService.currentUser()
+                .then(onCurrentUserSuccess)
+                .catch(onCurrentUserError)
+        }
+
+        function onLogoutClicked(e) {
+            usersService.logout()
+                .then(onLogoutUserSuccess)
+                .catch(onLogoutUserError)
+        }
+        function onLogoutUserSuccess(response) {
+            toastr["success"]("You will now be redirected...", "Logout Successful")
+            location.href = "/cohort93/users/users-login.html"
+        }
+        function onLogoutUserError(response) {
+            console.log("Ruh-roh! Something went wrong!")
+        }
+
+        function onCurrentUserSuccess(response) {
+            console.log("onCurrentUserSuccess is firing")
+            var tempId = response.data.item.id
+            console.log(tempId)
+
+            //get user info by ID
+            usersService.getById(tempId)
+                .then(onGetByIdSuccess)
+                .catch(onGetByIdError)
+
+        }
+        function onCurrentUserError(response) {
+            console.log("onCurrentUserError is firing")
+            location.href = "users/users.login.html"
+        }
+
+
+        function onGetByIdSuccess(response) {
+            console.log("onGetByIdSuccess is firing")
+            var tempUser = response.data.item
+            console.log(tempUser)
+            //jquery to insert name and picture
+            $("#welcome-msg").text(`Welcome, ${tempUser.firstName}`);
+            $("#user-img").attr("src", tempUser.avatarUrl)
+        }
+        function onGetByIdError(response) {
+            console.log("onGetByIdError is firing", response)
+        }
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

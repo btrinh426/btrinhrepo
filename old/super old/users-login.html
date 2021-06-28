@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Login</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="/cohort93/services/usersService.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <!-- <div class="container ajax sabio"></div> -->
+
+    <!-- Nav Bar Elements: home people blogs tech companies jobs events -->
+    <!-- <div class="row justify-content-between border-bottom border-primary">
+        <div class="col-5">
+            <nav class="home">
+                <ul class="nav">
+                    <img class="img-fluid" width="30"
+                        src="https://i.pinimg.com/originals/9b/f2/2d/9bf22d0f8d92f9c79e2492cb56400195.png">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="people.getPaginated.html">People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Tech Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-2">
+            <span class="align-middle" id="welcome-msg">Welcome User</span><button type="button"
+                class="btn btn-link align-middle" id="logout-user">Logout</button>
+        </div>
+    </div> -->
+    <br>
+    <div class="container">
+        <div class="form-row">
+            <div class="col-6">
+                <h1>User Login</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="email-input">Email Address</label>
+                        <input type="email" class="form-control" id="email-input" placeholder="email@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-input">Password</label>
+                        <input type="password" class="form-control" id="password-input" placeholder="">
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-lg" id="login-user">Login</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <br>
+
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        function startUp() {
+            console.log("startUp is firing")
+            $("#login-user").on("click", onLoginUserClicked);
+        }
+
+        function onLoginUserClicked(e) {
+            e.preventDefault(); //keep handler functions thin
+            console.log("onLoginUserClicked is firing")
+            //collect form data
+            var userLoginData = getFormData();
+            console.log("Data Returned", userLoginData)
+
+            //send form data - Axios call
+            usersService.login(userLoginData)
+                .then(onUserLoginSuccess)
+                .catch(onUserLoginError)
+        }
+
+        function getFormData() {
+            console.log("getFormData is firing")
+            var data = {};
+            data.email = $("#email-input").val();
+            data.password = $("#password-input").val();
+            data.tenantId = "U018SUYK401";
+
+            console.log("getFormData Exit", data)
+
+            return data
+        }
+
+        function onUserLoginSuccess(response) {
+            console.log("onUserLoginSuccess is firing")
+
+            toastr["success"]("Socially distanced high-five engaged", "Login Complete")
+            location.href = "/cohort93/home.html";
+
+            console.log(response)
+        }
+        function onUserLoginError(response) {
+            console.log("onUserLoginError is firing")
+
+            console.log("returned data", response.response.data.errors)
+            var errors = response.response.data.errors;
+            console.log("errors", errors)
+            var errorString = "";
+
+            for (let i = 0; i < errors.length; i++) {
+                errorString += `<br><i class="fas fa-times pr-2"></i> ` + errors[i] + `<br>`;
+
+            }
+
+            if (errorString.toLowerCase().includes("invalid email")) {
+                errorString = "User not found";
+            }
+            else if (errorString.toLowerCase().includes("invalid credentials")) {
+                errorString = "Password Incorrect"
+            }
+
+            toastr["error"](errorString, "Error")
+
+        }
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>
