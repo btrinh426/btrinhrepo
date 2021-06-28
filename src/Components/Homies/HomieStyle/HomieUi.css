@@ -1,0 +1,7 @@
+FormControl .textField {
+    background-color: transparent !important;
+    margin: 10px 0px;
+    border-color: turquoise !important;
+    outline-color: turquoise !important;
+    width: 30vw;
+}
