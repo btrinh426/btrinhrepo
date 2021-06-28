@@ -1,0 +1,48 @@
+FriendsDisplay component:
+import React from "react";
+import SingleFriend from "./SingleFriend";
+class FriendsDisplay extends React.Component {
+    state={
+        test:[{name: "hio", id:57}, {name: "hldkfo", id:63}, {name: "alfio", id:5227}, {name: "hioreh", id:17}],
+        mappedFriends:[]
+    }
+componentDidMount(){
+    this.onSuccess();
+}
+onSuccess=()=> {
+    console.log(this.state.test)
+    let tstFriend =this.state.test.map(this.mapFriend);
+    this.setState(()=>{
+        return {
+            mappedFriends: tstFriend
+        }
+    });
+};
+tstFx=(id)=>{
+    console.log("hello from the child", id)
+}
+mapFriend=(aFriend)=>{return <SingleFriend friend={aFriend} onTest={this.tstFx}/>}
+    render() {
+        return (
+            <div className="clone-container card-deck justify-content-center">
+                <p>{this.state.mappedFriends}</p>
+            </div>
+        )
+    }
+}
+export default FriendsDisplay;
+3:27
+SingleFriend component:
+import React from "react";
+const SingleFriend = props => {
+    const onTest = ()=> {
+        props.onTest(props.friend.id);
+    }
+    return (
+        <React.Fragment>
+            <h1>{props.friend.name}</h1>
+            <button onClick={onTest}>Ckic me</button>
+        </React.Fragment>
+    )
+}
+export default SingleFriend;
