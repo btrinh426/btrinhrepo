@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Friends</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="/cohort93/services/friendsService.js"></script>
+    <script src="/cohort93/services/usersService.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <!-- Nav Bar Elements: home people blogs tech companies jobs events -->
+    <!-- <div class="row justify-content-between border-bottom border-primary">
+        <div class="col-5">
+            <nav class="home">
+                <ul class="nav">
+                    <img class="img-fluid" id="user-img" width="30"
+                        src="https://i.pinimg.com/originals/9b/f2/2d/9bf22d0f8d92f9c79e2492cb56400195.png">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/cohort93/home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Friends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Tech Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register User</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-2">
+            <span class="align-middle" id="welcome-msg">Welcome User</span><button type="button"
+                class="btn btn-link align-middle" id="logout-user">Logout</button>
+        </div>
+    </div> -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="p-3"><a href="/cohort93/home.html"><img id="user-img" style="height:50px;"
+                        src="/cohort93/images/planet-express-logo.png"></a></div>
+            <div class="col p-3">
+                <nav class="home">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/friends/friends.html">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/blogs/blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/tecco/tech-companies.html">Tech Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/jobs/jobs.html">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/events/events.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cohort93/users/users-register.html">Register User</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="p-3">
+                <span id="welcome-msg">Welcome User</span>
+                <button type="button" class="btn btn-sm btn-link" id="logout-user">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container ajax sabio"></div> -->
+
+    <!-- Add Friend Form -->
+    <p></p>
+    <div class="container" id="top">
+        <form>
+            <div class="form-row align-items-center justify-content-between">
+                <div class="col-auto">
+                    <button type="button" class="btn btn-primary mb-2" id="add-button">Add Friend</button>
+                </div>
+                <div class="col-auto">
+                    <!-- <label class="sr-only" for="inlineFormInputGroup">Search Friends</label> -->
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="search-input" placeholder="Search Friends...">
+                        <button type="submit" id="search-submit" class="btn btn-primary mb-2">Search</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <p></p>
+
+    <!-- Render Friends Container -->
+    <div class="container">
+        <div class="row justify-content-center" id="render-container">
+
+        </div>
+    </div>
+
+    <!-- Friend Template -->
+    <script id="card-template" type="text/template">
+        <div class="col-3 card-friend">
+            <div class="card border-0 shadow" style="background-color: white; width: 18rem;">
+                <img src="https://seeklogo.com/images/U/ufc-logo-25A796E80A-seeklogo.com.png" style="background-color: white" class="card-img-top"
+                    alt="">
+                <div class="card-body text-left">
+                    <h5 class="card-title mb-0" data-friend-id="0">Name</h5>
+                    <div class="card-headline text-black-50">Headline</div>
+                    <div class="card-summary text-black-50">Summary</div>
+                    <div class="card-bio text-black-50">Bio</div>
+                    <div class="card-slug text-black-50">Slug</div>
+                    <div class="card-status text-black-50">Status</div>
+                    <button type="button" class="btn btn-primary edit-friend">Edit</button>
+                    <button type="button" class="btn btn-danger delete-friend">Delete</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        function startUp() {
+            console.log("startUp is Firing");
+
+            wireUpHandlers();
+            //display list of friends on startUp
+            friendsService.getPaginated(0, 100)
+                .then(displayFriendsSuccess)
+                .catch(displayFriendsError)
+
+            $("#logout-user").on("click", onLogoutClicked)
+            //verify a user is signed in
+            usersService.currentUser()
+                .then(onCurrentUserSuccess)
+                .catch(onCurrentUserError)
+
+        }
+
+        function wireUpHandlers() {
+            console.log("wireUpHandlers is Firing")
+
+            //add record button
+            $("#add-button").on("click", function (e) {
+                location.href = "friends-add.html"
+            });
+
+            var wrapperContainer = $("#render-container");
+            // //edit button on card            
+            wrapperContainer.on("click", ".card-friend .edit-friend", onEditFriendClicked);
+
+            // //delete button on card
+            wrapperContainer.on("click", ".card-friend .delete-friend", onDeleteFriendClicked);
+
+            //search button
+            $("#search-submit").on("click", onSearchSubmitClicked)
+        }
+
+        function onSearchSubmitClicked(e) {
+            e.preventDefault();
+            console.log("onSearchSubmitClicked is firing")
+            var searchData = $("#search-input").val()
+
+            friendsService.getPaginatedSearch(searchData)
+                .then(onSearchSuccess)
+                .catch(onSearchError)
+        }
+        function onSearchError(response) {
+            console.log("onSearchError is firing", response)
+        }
+        function onSearchSuccess(response) {
+            console.log("onSearchSuccess is firing", response.data.item.pagedItems)
+            var tempFriends = response.data.item.pagedItems
+            $("#render-container").empty()
+            displayFriendsWithMapping(tempFriends)
+        }
+
+        function displayFriendsSuccess(response) {
+            console.log("displayFriendsSuccess is firing", response)
+
+            displayFriendsWithMapping(response.data.item.pagedItems)
+            console.log("No more friends to display")
+        }
+        function displayFriendsWithMapping(friendsList) {
+
+            console.log("displayFriendsWithMapping is firing")
+            console.log("Friends List", friendsList)
+
+            let renderFriendArray = friendsList.map(mapSingleItem);
+
+            $("#render-container").append(renderFriendArray);
+        }
+        function mapSingleItem(singleFriend) {
+            console.log("mapSingleItem is firing")
+            console.log(singleFriend)
+            var clone = getTemplate();
+
+            clone.find(".card-title").text(singleFriend.title);
+            clone.find(".card-headline").text(`Headline: ${singleFriend.headline}`);
+            clone.find(".card-summary").text(`Summary: ${singleFriend.summary}`);
+            clone.find(".card-bio").text(`Bio: ${singleFriend.bio}`);
+            clone.find(".card-slug").text(`Slug: ${singleFriend.slug}`);
+            clone.find(".card-status").text(`Status: ${singleFriend.statusId}`);
+            clone.find("img").attr("src", singleFriend.primaryImage.imageUrl);
+            clone.find(".card-title").attr("data-friend-id", singleFriend.id);
+
+            return clone
+
+        }
+        function displayFriendsError(response) {
+            console.warn("Error: Well, that's disappointing.", { error: response })
+        }
+
+        function onEditFriendClicked(e) {
+            e.preventDefault();
+            console.log("onEditFriendClicked is firing")
+
+            var parentContainer = $(this).parents(".card").html();
+            var tempFriendId = $(parentContainer).find(".card-title").attr("data-friend-id");
+
+            location.href = `friends-edit.html?id=${tempFriendId}`
+        }
+
+        function onDeleteFriendClicked(e) {
+            e.preventDefault();
+            console.log("onDeleteFriendClicked is firing")
+            var parentContainer = $(this).parents(".card").html();
+            console.log("Parent Container is ", parentContainer)
+            var tempFriendId = $(parentContainer).find(".card-title").attr("data-friend-id");
+            console.log("tempFriend", tempFriendId);
+
+            friendsService.statusUpdate(tempFriendId)
+                .then(onDeleteFriendSuccess)
+                .catch(onDeleteFriendError)
+
+
+        }
+        function onDeleteFriendSuccess(response) {
+            console.log("Success: Socially distanced high fives acheived!", response)
+            var tempId = (response.config.url).split("/")
+            console.log(tempId[5])
+            $(`[data-friend-id='${tempId[5]}']`).parents(".card-friend").remove();
+
+
+        }
+        function onDeleteFriendError(response) {
+            console.warn("Error: Well, that's disappointing.", { error: response });
+        }
+
+        function getTemplate() {
+            console.log("getTemplate fired");
+
+            return $($("#card-template").html()).clone();
+        }
+
+
+        //user related scripts
+        function onLogoutClicked() {
+            usersService.logout()
+                .then(onLogoutUserSuccess)
+                .catch(onLogoutUserError)
+        }
+        function onLogoutUserSuccess(response) {
+            toastr["success"]("You will now be redirected...", "Logout Successful")
+            location.href = "/cohort93/users/users-login.html"
+        }
+        function onLogoutUserError(response) {
+            console.log("Ruh-roh! Something went wrong!", response)
+
+        }
+
+
+        function onCurrentUserSuccess(response) {
+            console.log("onCurrentUserSuccess is firing")
+            var tempId = response.data.item.id
+            console.log(tempId)
+
+            //get user info by ID
+            usersService.getById(tempId)
+                .then(onGetByIdSuccess)
+                .catch(onGetByIdError)
+
+        }
+        function onCurrentUserError(response) {
+            console.log("onCurrentUserError is firing")
+            location.href = "users/users.login.html"
+        }
+
+
+        function onGetByIdSuccess(response) {
+            console.log("onGetByIdSuccess is firing")
+            var tempUser = response.data.item
+            console.log(tempUser)
+            //jquery to insert name and picture
+            $("#welcome-msg").text(`Welcome, ${tempUser.firstName}`);
+            $("#user-img").attr("src", tempUser.avatarUrl)
+        }
+        function onGetByIdError() {
+            console.log("onGetByIdError is firing")
+        }
+
+
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>
