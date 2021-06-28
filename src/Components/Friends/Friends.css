@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Chango&display=swap");
+
+.jumbotron {
+    background-color: rgba(39, 36, 204, 0.109);
+}
+h1 {
+    font-family: Chango, cursive;
+}
+.fWelcome {
+    margin-top: 20px;
+}
+.btn {
+    margin: 10px;
+}
