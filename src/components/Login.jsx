@@ -1,0 +1,91 @@
+import React from "react";
+import logIn from "../services/userService";
+
+class Login extends React.Component {
+  state = {
+    loginFormData: {
+      email: " ",
+      password: "",
+    },
+  };
+
+  onInputChanged = (e) => {
+    let currentTarget = e.currentTarget;
+    let newValue = currentTarget.value;
+    let inputName = currentTarget.name;
+
+    this.setState(() => {
+      let loginFormData = { ...this.state.loginFormData };
+      loginFormData[inputName] = newValue;
+      // console.log(loginFormData.email, loginFormData.password);
+      return { loginFormData };
+    });
+  };
+
+  onSignInClicked = (e) => {
+    e.preventDefault();
+    // console.log(this.state.loginFormData);
+    logIn(this.state.loginFormData)
+      .then(this.onLoginSuccess)
+      .catch(this.onLoginError);
+  };
+  onRegisterClicked = (e) => {
+    e.preventDefault();
+    this.props.history.push("/register");
+  };
+  onLoginSuccess = () => {
+    this.props.history.push("/jumbo");
+  };
+  onLoginError = (err) => {
+    console.log(err);
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <div className="login main">
+          <h3>Login</h3>
+          <form id="loginForm">
+            <div className="form-group">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                value={this.state.loginFormData.email}
+                onChange={this.onInputChanged}
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                onChange={this.onInputChanged}
+                value={this.state.loginFormData.password}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.onSignInClicked}
+            >
+              Login
+            </button>
+            <button
+              id="toRegisterButton"
+              type="button"
+              className="btn btn-primary"
+              onClick={this.onRegisterClicked}
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default Login;
