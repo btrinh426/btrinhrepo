@@ -1,0 +1,97 @@
+yar.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+button.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  /* margin: 0;
+  padding: 0; */
+  text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#bannerImg {
+  height: 250px;
+  width: 100%;
+}
+
+#FormFriendsHeader {
+  font-size: 30px;
+}
+#listFriendsHeader {
+  font-size: 30px;
+}
+
+#friendsJumbo {
+  background: url(https://image.freepik.com/free-photo/closeup-men-fist-bumping_53876-30670.jpg)
+    center no-repeat;
+  background-size: cover;
+}
+#friendsListJumbo {
+  background: url(https://image.freepik.com/free-photo/silhouette-group-people-have-fun-top-mountain-near-tent-during-sunset_146671-18472.jpg)
+    center no-repeat;
+  background-size: cover;
+}
+#oneFriendCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#oneCarCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#carsJumbo {
+  background: url(https://di-uploads-pod10.dealerinspire.com/majorworld/uploads/2016/02/bmw-banner-xseries-1-1024x403.jpg)
+    center no-repeat;
+  background-size: cover;
+}
