@@ -1,0 +1,46 @@
+.card {
+  height: 550px;
+  width: 300px;
+  display: inline-flex;
+  margin: 10px 10px;
+  background-color: "aliceblue";
+  padding-left: "5px";
+  padding-right: "5px";
+  border: "2px solid rgb(185, 209, 230)";
+}
+
+.card img {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.card button {
+  max-width: 74px;
+  display: inline-flex;
+  margin-bottom: 2.5%;
+}
+
+.editButton {
+  float: inline-start;
+  margin-right: 7%;
+}
+
+.deleteButton {
+  float: inline-end;
+  margin-right: 7%;
+}
+
+#searchTools {
+  margin-top: -30px;
+  margin-left: 100%;
+  float: right;
+}
+
+#editFormContainer form {
+  margin-left: 5%;
+}
+
+.jumbotron {
+  margin-top: 5%;
+}
