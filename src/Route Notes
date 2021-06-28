@@ -1,0 +1,111 @@
+import React from "react";
+import {BrowserRouter, Route, NavLink } from "react-router-dom";
+import Fruits from "./foods/Fruits";
+import WelcomeMessage from "./generic/WelcomeMessage"
+import logo from "./logo.svg";
+import "./App.css";
+import Disney from "./examples/Disney";
+
+//in order to route you need to import like above
+
+class App extends React.Component {
+  state = {
+    currentUser: {
+      firstName: "Mickey"
+      , lastName: "Mouse"
+      , friends: [{ name: "Minnie" }, { name: "Pluto" }]
+      , age: 80
+    },
+    other: { "prop": "Same" },
+    somethingElse: "Same"
+  };
+
+  sayHello = (msg) => {
+    console.log("From App", msg)
+  };
+
+  componentDidMount() {
+    
+    console.log("componentDidMount");
+    console.log(this.state);
+    
+    
+    // object argument { currentUser: newUser, apples: "I love apples" }
+    // var newUser = { ...this.state.currentUser }
+    // newUser.firstName = "Michael";
+    // this.setState({ currentUser: newUser, apples: "I love apples" });
+
+    
+    //1st example - needs to return an object
+    // var updater = (prevState, props) =>
+    // {
+    //   let currentUser = { ...prevState.currentUser }
+    //   currentUser.firstName = "Michael";
+    //   return { currentUser };
+    // };
+
+    // this.setState(updater);
+
+    //2nd example - needs to return an object
+    this.setState((prevState, props) =>
+    {
+      let currentUser = { ...prevState.currentUser }
+      currentUser.firstName = "Michael";
+      const newFriends = [...currentUser.friends, { name: "Goofy" }];
+      currentUser.friends = newFriends;
+      return { currentUser };
+    });
+
+
+  }
+  //do not call setState within render() - setState calls render (initiates lifecycle)
+  render() {
+
+    // this.sayHello();
+
+    return (
+      <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <div>
+            <NavLink to="/fruits">Go to Fruits</NavLink>
+          </div>
+          <div>
+          <NavLink to="disney">Go to Disney</NavLink>
+          </div>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <div>
+            <Route path="/fruits" exact={true} component={Fruits}></Route>
+            <Route path="/fruits" exact={true} 
+              render={() => (
+                <WelcomeMessage user={this.state.currentUser} extra={"I love routing"} end="Goodbye."></WelcomeMessage>
+              )}
+            ></Route>
+            
+            <Route 
+            path="/disney" 
+            exact={true} 
+            render={(routeProps) => (
+                <Disney 
+            friend={this.state.currentUser} 
+            showGreeting={this.sayHello}
+              {...routeProps}
+            ></Disney>
+              )}
+            ></Route>
+            {/* <Disney 
+            friend={this.state.currentUser} 
+            showGreeting={this.sayHello}>
+            </Disney> */}
+          </div>
+          <div>
+            <p>Hellow World, I Love Code</p>
+          </div>
+        </header>
+      </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App
