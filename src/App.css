@@ -1,0 +1,286 @@
+/* HTML TAGS */
+html, body {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.top-bar {
+  background-color: rgb(67, 195, 238);
+  height: 50px;
+  max-width: -webkit-fill-available;
+  position: relative;
+  display: flex;
+}
+#header h1 {
+  font-size: 20px;
+  padding-top: 13px;
+  padding-left: 40px;
+  color: white;
+}
+#header {
+  padding-right: 50px;
+}
+.bar-btns {
+  color: white;
+  background-color: rgb(67, 195, 238);
+  font-size: medium;
+  float: left;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+/* Footer */
+.foot > footer > p {
+  margin: 0%;
+  text-align: center;
+  border-top: 1px solid gray;
+}
+.foot {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  height: 60px;
+}
+
+/* NAV MANU */
+.nav-menu.active {
+  left: 0%;
+  transition: 350ms;
+}
+.nav-menu {
+  display: flex;
+  background-color: whitesmoke;
+  width: 200px;
+  height: 100%;
+  justify-content: center;
+  transition: 850ms;
+  left: -100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.rounded-circle {
+  width: 100px;
+  margin: 10px 0px 10px 50px;
+}
+
+.usersTitle h5 {
+  font-size: 17px;
+  text-align: center;
+}
+
+.nav-menu > ul {
+  padding: 0px;
+}
+#nav-title {
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(196, 194, 194);
+  padding-left: 18px;
+}
+.nav-text {
+  display: flex;
+  margin-left: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+.nav-text a {
+  color: rgb(148, 148, 148);
+  font-size: 18px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+}
+.nav-text.a:hover {
+  text-decoration: underline;
+}
+span {
+  margin-left: 16px;
+}
+
+/* Register */
+#head h1 {
+  font-size: 30px;
+  color: lightgray;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+.form {
+  margin-left: 10%;
+  max-width: 80%;
+}
+.form .row {
+  justify-content: center;
+}
+#body {
+  border: 1px groove gray;
+}
+.col-form-label {
+  padding-left: 0px;
+  text-align: center;
+}
+#casingsubmit  {
+  margin-right: 170px;
+}
+
+/* Login */
+.card {
+  border: 2px solid gray;
+  text-align: center;
+  border-radius: 15px;
+  width: 75%;
+}
+.form-group {
+  padding: 10px;
+  margin: 0px;
+}
+.form-control-md {
+  width: 100%;
+  height: 40px;
+}
+.form-group .log-btns {
+  width: 100%;
+  text-align: center;
+}
+
+.form-group h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: gray;
+}
+.form-group svg {
+  color: gray;
+  position: absolute;
+  margin: -30px;
+  margin-top: 10px;
+}
+.login {
+  margin: 35%;
+  margin-top: 20px;
+}
+@media (min-width: 300px) {
+  .flex {
+    width: 350px;
+  }
+}
+.card-body {
+  padding: 0px;
+}
+.card-title {
+  height: 50px;
+  margin-bottom: 0px;
+  border-radius: 14px;
+}
+.card-title h5 {
+  padding: 7px;
+}
+.card-title h6 {
+  padding: 10px;
+  margin: 0;
+}
+#welcome {
+  background-color: black;
+  color: white;
+}
+#message {
+  background-color: rgb(250, 243, 243);
+  color: gray;
+  padding-top: 5px;
+}
+
+/* Home */
+.home {
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+/* People */
+#titleboxPeople {
+  border-bottom: 1px solid gray;
+  display: inline-flex;
+  margin-left: 300px;
+  max-width: 1600px;
+}
+#searchicon {
+  margin: 15px 0px 0px 10px; 
+}
+#peopletitle {
+  padding: 5px;
+  width: 25%;
+}
+#searchbox {
+  width: 25%;
+  margin: 4px 5px 0px 500px;
+}
+.rounded-circle {
+  width: 80px;
+  align-self: center;
+}
+.card-img-top {
+  margin: 10px 0px 0px 0px;
+}
+.card-people {
+  margin: 3px;
+  width: 100%;
+  padding: inherit;
+}
+.card-title {
+  color: gray;
+}
+.card-text {
+  color: gray;
+}
+.card-container {
+  width: 1300px;
+  height: 600px;
+  margin-top: 15px;
+  margin-left: 300px;
+}
+.display img {
+  width: 75px;
+  margin: 0px 0px 0px 40px;
+}
+.edit-btn {
+  float: left;
+}
+.delete-btn {
+  float: right;
+  background-color: red;
+  border-color: red;
+}
+.delete-btn:hover {
+  background-color: red;
+  border-color: red;
+}
+.card-row {
+  width: 1600px;
+}
+.rc-pagination {
+  margin-left: 47%;
+}
+#addbtn {
+  margin: 4px 0px 0px 50px;
+  width: 50px;
+  height: 40px;
+}
+
+
+/* Edit Form */
+.edit-form .col-md-7 {
+  margin: 0px 0px 0px 225px;
+  padding: 20px;
+}
+
+#edit-submit {
+  margin-left: 500px;
+}
+
+#top-row {
+  border: 3px solid lightgray;
+  margin-top: 30px;
+}
