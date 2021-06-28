@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>PW Execise Template</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="entityService.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <div class="container ajax sabio d-none"></div>
+
+    <!-- Do Not Edit or Remove this footer element -->
+
+    <form id="formTemplate">
+        <div class="form-group">
+            <label for="inputModel">Search by Model</label>
+            <input type="text" class="form-control" id="inputModel" placeholder="Toyota, Honda, etc">
+        </div>
+        <div class="form-group">
+            <label for="inputMake">Search by Make</label>
+            <input type="text" class="form-control" id="inputMake" placeholder="Camry, Corolla, etc">
+        </div>
+        <div class="form-group">
+            <label for="inputYear">Search by Year</label>
+            <input type="text" class="form-control" id="inputYear" placeholder="1993, etc">
+        </div>
+        <div class="form-group d-none">
+            <label for="inputId">Search by Year</label>
+            <input type="text" class="form-control" id="inputId" placeholder="1993, etc">
+        </div>
+        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary">Show All Cars</button>
+        <button type="button" class="btn btn-success">Update</button>
+    </form>
+    </div>
+    </div>
+
+
+    <script id="card-template" type="text/html">
+                <div class="row pb-5 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-model">Ex: Car Model</h5>
+                            <h5 class="card-make">Ex: Car Make</h5>
+                            <h5 class="card-year">Ex: Car Year</h5>
+                            <h5 class="card-id d-none">For Id</h5>
+                            <p class="card-text">This is the record for the car you have searched.</p>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-info">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+
+
+    <div class="clone-container">
+        ​
+    </div>
+
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        function startUp() {
+            wireHandlers();
+        }
+
+        var wireHandlers = () => {
+            $(".btn-secondary").on("click", getAllCars)
+            $(".btn-primary").on("click", addCar)
+            $(".btn-success").on("click", updateCar)
+            $(".clone-container").on("click", ".btn-danger", deleteCar)
+            $(".clone-container").on("click", ".btn-info", updateFormData)
+        }
+
+        var getAllCars = () => {
+            entityService.getAll()
+                .then(onGetCarsSuccess)
+                .catch(onGetCarsError)
+        }
+
+        var onGetCarsSuccess = (response) => {
+            console.log({ cars: response.data.items })
+            $(".clone-container").empty();
+            return renderCars(response.data.items);
+        }
+
+        var onGetCarsError = (response) => {
+            console.warn({ error: response })
+        }
+
+        var addCar = () => {
+            entityService.add(getFormData())
+                .then(addCarSuccess)
+                .catch(addCarError)
+        }
+
+        var addCarSuccess = (response) => {
+            console.log(getFormData())
+            $(".clone-container").empty();
+            return mapCar(getFormData());
+        }
+
+        var addCarError = (response) => {
+            console.warn({ error: response })
+        }
+
+        var updateCar = () => {
+            entityService.update(getFormData())
+                .then(updateCarSuccess)
+                .catch(updateCarError)
+        }
+
+        var updateCarSuccess = (response) => {
+            console.log(getFormData())
+            $(".clone-container").empty();
+            return mapCar(getFormData());
+        }
+
+        var updateCarError = (response) => {
+            console.warn({ error: response })
+        }
+
+        function getFormData() {
+            var data = {}
+            data.model = $("#inputModel").val();
+            data.make = $("#inputMake").val();
+            data.year = $("#inputYear").val();
+            data.id = $("#inputId").val();
+            return data;
+        }
+
+        function updateFormData() {
+            var thisCar = $(this).closest(".card")
+            $("#inputModel").val(thisCar.find(".card-model").text())
+            $("#inputMake").val(thisCar.find(".card-make").text())
+            $("#inputYear").val(thisCar.find(".card-year").text())
+            $("#inputId").val(thisCar.find(".card-id").text())
+            console.log("Updated form")
+        }
+
+        var clearForm = () => {
+            $("#inputModel").val("")
+            $("#inputMake").val("")
+            $("#inputYear").val("")
+            $("#inputId").val("")
+        }
+
+        var templateClone = () => $($("#card-template").html()).clone()
+
+        var renderCars = (carArr) => {
+
+            for (let index = 0; index < carArr.length; index++) {
+                var aCar = carArr[index];
+
+                console.log("Showing all Cars", aCar)
+
+                var clone = templateClone();
+
+                clone.find(".card-model").text(aCar.model)
+                clone.find(".card-make").text(aCar.make)
+                clone.find(".card-year").text(aCar.year)
+                clone.find(".card-id").text(aCar.id)
+
+                $(".clone-container").append(clone);
+            }
+        }
+
+        var mapCar = (aCar) => {
+
+            var clone = templateClone();
+
+            clone.find(".card-model").text(aCar.model)
+            clone.find(".card-make").text(aCar.make)
+            clone.find(".card-year").text(aCar.year)
+            clone.find(".card-id").text(aCar.id)
+
+            $(".clone-container").append(clone);
+        }
+
+        function deleteCar() {
+            let id = $(this).closest(".card").find(".card-id").text()
+            let card = $(this).closest(".row")
+            $(card).remove()
+
+            entityService.delete(id)
+                .then(onDeleteSuccess)
+                .catch(onDeleteError)
+        }
+
+        var onDeleteSuccess = (id) => {
+            console.log(response)
+        }
+
+        var onDeleteError = (response) => {
+            console.warn({ error: response })
+        }
+
+
+        //-------
+        // function getCloneData() {
+        //     var data = {}
+        //     data.model = $(".card-model").text();
+        //     data.make = $(".card-make").text();
+        //     data.year = $(".card-year").text();
+        //     data.id = $(".card-id").text();
+
+        //     return data;
+        // }
+
+        // function onClickE() {
+        //     console.log($(this).closest(".card").find(".card-id").text())
+
+        // }
+
+        // function renderAllCarsMapped(cars) {
+        //     carTemplateArray = cars.map(mapCar)
+        //     $(".clone-container").append(carTemplateArray)
+        // }
+
+
+//         var aCar = {
+
+// aCar.model: theData.model,
+// aCar.make: theData.make,
+// aCar.year: theData.year
+// }
+
+// var id = response.config.data;
+
+            // console.log($(".clone-container").html());
+            //  console.log(id)
+            // if ($(".clone-container").find(".card-id").text() === id) {
+            //     //this.remove(".card");
+            //     console.log("this")
+            // }
+
+
+// call entityService.create for POST when onClick of submit
+
+      //  var getTheCars = () => 
+
+     // <button type="submit" class="btn btn-primary">Submit</button>
+
+// function getTemplate()
+        // {
+        //     var templateClone = $($("#cloneContainer").html()).clone();
+
+        //     return templateClone;
+        // }
+
+        // clone.find(".first-image").attr("src", aTheater.imageOne)
+        //     clone.find(".second-image").attr("src", aTheater.imageTwo)
+        //     clone.find(".third-image").attr("src", aTheater.imageThree)
+
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>
