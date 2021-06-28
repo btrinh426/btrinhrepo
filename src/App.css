@@ -1,0 +1,94 @@
+yar.App {
+  text-align: center;
+}
+#test {
+  margin-top: 500px;
+}
+/* h3 {
+  margin-left: 500px;
+  font-size: 50px;
+  color: black;
+} */
+div.login h3 {
+  margin-left: 100px;
+}
+div.register {
+  margin-top: 150px;
+  width: 100%;
+}
+div.login {
+  margin-top: 100px;
+  margin-left: 350px;
+}
+div.friends {
+  width: 50%;
+  margin-top: 100px;
+  margin-left: 400px;
+}
+div.update {
+  margin-top: 150px;
+  width: 100%;
+}
+div.friend-list {
+  margin-top: 50px;
+}
+#loginForm {
+  width: 40%;
+}
+#toRegisterButton {
+  margin-left: 150px;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+button.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  /* margin: 0;
+  padding: 0; */
+  text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
