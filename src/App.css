@@ -1,0 +1,130 @@
+yar.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 40vmin;
+}
+
+.App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+nav button {
+	background: none !important;
+	color: inherit;
+	border: none;
+	font: inherit;
+	/*border is optional*/
+	border-bottom: 1px solid #444;
+	cursor: pointer;
+}
+
+button.link-button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	text-decoration: underline;
+	display: inline;
+	/* margin: 0;
+  padding: 0; */
+	text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus {
+	text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.friendForm {
+	padding: 40px;
+	align-items: center;
+}
+.card-img {
+	height: auto;
+	max-height: 250px;
+	width: auto;
+	max-width: 250px;
+}
+.card {
+	width: 320px;
+	height: 415px;
+}
+.card-deck {
+	display: flex;
+	flex-direction: row;
+}
+.Login {
+	padding: 40px;
+	align-items: center;
+}
+.registerForms {
+	padding: 40px;
+	align-items: center;
+}
+.loginForms {
+	padding: 300px;
+	align-items: center;
+}
+.logout {
+	background-color: red;
+	color: white;
+	right: 10px;
+	position: absolute;
+}
+
+.friendCards {
+	padding-top: 100px;
+	justify-content: center;
+	align-items: center;
+}
+.search-friend {
+	float: right;
+}
+
+.paginationButtons {
+	width: 80%;
+	height: 40px;
+	list-style: none;
+	display: flex;
+}
+
+.paginationButtons a {
+	padding: 10px;
+	margin: 8px;
+	border-radius: 5px;
+	border: 1px solid #2b22ff;
+	color: #2b2eff;
+	cursor: pointer;
+}
+
+.paginationButtons a:hover {
+	color: white;
+	background-color: #2b2eff;
+}
+
+.paginationActive a {
+	font: white;
+	background-color: #2b2eff;
+}
