@@ -1,0 +1,133 @@
+yar.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.disabled {
+  /* color: white; */
+}
+
+nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+button.addFriend {
+  display: block;
+  width: 100%;
+  /* margin: 5 0px; */
+  border: none;
+  background-color: lightgreen;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+button.deleteBtn {
+  background-color: red;
+  float: right;
+}
+
+button.link-button {
+  /* background-color: transparent; */
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  /* margin: 0;
+  padding: 0; */
+  text-decoration: none;
+}
+
+.form-group {
+  background-color: transparent;
+  margin: 0 320px;
+  padding: 20px;
+}
+
+/* button.submit {
+  margin: 0 340px;
+} */
+
+.registerHeader {
+  /* margin: 0 620px; */
+  /* overflow: hidden; */
+  white-space: nowrap;
+  text-align: center;
+}
+
+.homeHeader {
+  margin: 0 620px;
+}
+
+.pagination {
+  float: center;
+}
+
+.loginBtn {
+  display: flex;
+  width: 100%;
+  border: none;
+  background-color: skyblue;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  /* align-items: center;
+  justify-content: center;
+  display: flex; */
+}
+
+button.submit {
+  display: block;
+  width: 100%;
+  /* margin: 5 0px; */
+  border: none;
+  background-color: lightcoral;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
