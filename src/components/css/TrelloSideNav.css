@@ -1,0 +1,39 @@
+/* my css added for webpages */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+  }
+  
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: rgb(117, 196, 216);
+  }
+  a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    
+  }
+  
+  a, a:hover, a:focus {
+    color: inherit;
+  }
+  #sidebar {
+    min-width: 225px;
+    max-width: 225px;
+    min-height: 100vh;
+    color: rgb(117, 196, 216);
+  }
+  
+  div.title {
+    background-color: rgb(117, 196, 216) !important;
+    color: white;
+  }
+  h3{
+    color: white;
+  }
+  
