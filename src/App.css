@@ -1,0 +1,107 @@
+yar.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+button.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  /* margin: 0;
+  padding: 0; */
+  text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* PAGINATION STYLING */
+.pagination > li {
+  display: inline-block;
+  padding-left: 0;
+}
+.pagination > li {
+  list-style: none;
+  /* border: 0.9px solid; */
+  margin-top: 30px;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #007bff !important;
+  border: 1px solid #007bff;
+  margin-left: -1px;
+}
+
+.pagination > li.active > a {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: #fff !important;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.pagination > li > a:hover {
+  background-color: #007bff;
+  color: #fff !important;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  color: #007bff !important;
+  margin-left: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 6px 12px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  color: #007bff !important;
+  border-bottom-right-radius: 5px;
+  margin-right: 0;
+  border-top-right-radius: 5px;
+  padding: 6px 12px;
+}
