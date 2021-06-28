@@ -1,0 +1,316 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  margin-top: 0px; /* Stay at the top */
+  left: 0;
+  background-color: #343a40;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 0px;
+}
+
+/* User Avatar */
+.card-user img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 175px;
+  height: 175px;
+  position: relative;
+  margin-bottom: 0px;
+  scroll-behavior: auto;
+}
+
+/* Username in Sidebar*/
+.card-user p {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 0px;
+}
+
+/* The title of the sidebar */
+.sidenav h1 {
+  padding-left: 20px;
+  z-index: 1;
+  position: relative;
+  font-size: 15px;
+  margin-top: 75px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 0;
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+}
+
+.sidenav.isLoggedIn h1 {
+  margin-top: 0px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding-left: 25px;
+  padding-top: 6px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Auto adjust main to fit SideNav */
+main {
+  position: auto;
+}
+
+/* Register New User Page */
+.register-card {
+  align-content: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  padding-top: 75px;
+  margin-bottom: 10px;
+  padding-left: 0px;
+  scroll-behavior: auto;
+}
+#message {
+  margin-top: 12px;
+  display: block;
+}
+
+#message h3 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#message p {
+  margin-left: 12px;
+  font-size: 12px;
+}
+
+/* Log Buttons on Navbar*/
+.login-link {
+  float: right;
+  padding-right: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+.login-link:hover {
+  color: #f1f1f1;
+}
+
+.logout-link {
+  float: right;
+  padding-right: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+/* Login Page */
+.card-login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  padding-top: 75px;
+  margin-bottom: 10px;
+  padding-left: 0px;
+  scroll-behavior: auto;
+}
+
+.card-login h5 {
+  text-align: center;
+  font-weight: normal;
+}
+
+#registerFromLoginPage {
+  margin-left: auto;
+  margin-right: auto;
+  width: 460px;
+}
+
+/* User Home Page */
+.greetings-user {
+  padding-left: 300px;
+  padding-top: 150px;
+  font-size: 50px;
+}
+
+/* Friend Page */
+.card-people form {
+  size: 200px 38px;
+  float: right;
+  font-weight: normal;
+}
+.add-friend-link {
+  float: inline-end;
+  margin-left: 1200px;
+  font-weight: normal;
+  color: #818181;
+  font-size: 15px;
+}
+.add-friend-link:hover {
+  color: #ffffff;
+}
+
+.card-people {
+  padding-top: 50px;
+  padding-bottom: 0px;
+  margin-left: 200px;
+  background-color: #403a34;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.friend-container {
+  margin-left: 200px;
+  margin-top: 40px;
+}
+
+.pagination {
+  display: inline-block !important;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 10px;
+}
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.card-friends {
+  text-align: center;
+}
+
+.card-friends .btn-secondary {
+  float: left;
+  width: 92px;
+  height: 48px;
+}
+.card-friends .btn-danger {
+  float: right;
+  width: 92px;
+  height: 48px;
+}
+
+.card-friends img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+}
+
+/* Adding/Editing Friend */
+.card-friend {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1500px;
+  height: auto;
+  position: relative;
+  padding-top: 75px;
+  margin-bottom: 10px;
+  padding-left: 200px;
+  scroll-behavior: auto;
+}
+
+.card-friend h5 {
+  text-align: center;
+}
+
+/* Job Page */
+.card-jobs form {
+  size: 200px 38px;
+  float: right;
+  font-weight: normal;
+}
+.card-jobs {
+  padding-top: 50px;
+  padding-bottom: 0px;
+  margin-left: 200px;
+  background-color: #403a34;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+.add-job-link {
+  float: inline-end;
+  margin-left: 1250px;
+  font-weight: normal;
+  color: #818181;
+  font-size: 15px;
+}
+.add-job-link:hover {
+  color: #ffffff;
+}
+
+/* Adding/Editing Job Listing */
+.card-job {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1500px;
+  height: auto;
+  position: relative;
+  padding-top: 75px;
+  margin-bottom: 10px;
+  padding-left: 200px;
+  scroll-behavior: auto;
+}
+
+.card-job h5 {
+  text-align: center;
+}
+
+/* Footer */
+.container-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
