@@ -1,0 +1,273 @@
+Original App.jsx start
+---------------------------------------------------------------------------------------
+import React from "react";
+import {BrowserRouter, Route, NavLink} from "react-router-dom";
+import Fruits from "./foods/Fruits";
+import WelcomeMessage from "./generic/WelcomeMessage";
+import logo from "./logo.svg";
+import Disney from "./examples/Disney";
+import "./App.css";
+
+class App extends React.Component{
+  state = {
+    currentUser: {
+        firstName: "Mickey"
+        , lastName: "Mouse"
+        , friends: [{ name: "Minnie" }, { name: "Pluto" }]
+        , age: 80
+    },
+    other: { "prop": "Same" },
+    somethingElse: "Same"
+};
+
+sayHello = (msg) =>
+{
+  console.log(msg);
+}
+
+componentDidMount(){
+  console.log("componentDidMount");
+  console.log(this.state);
+
+//objecte arguement {currentUser: newUser, apples: "I Love Apples!"}
+
+  // let newUser = {...this.state.currentUser}
+  // newUser.firstName = "Michael";
+  // this.setState({currentUser: newUser, apples: "I Love Apples!"});
+  
+
+
+this.setState(prevState =>{
+
+  let currentUser = {...prevState.currentUser};
+  currentUser.firstName = "Michael";
+  const newFriends = [...currentUser.friends, {name: "Goofy"}];
+  currentUser.friends = newFriends;
+
+  return {currentUser};
+});
+
+  
+  
+}
+
+  render()
+  { 
+
+    this.sayHello("From App Component");
+    
+    return(
+    <BrowserRouter>
+    <div className="App">
+      <header className="App-header">
+          <div>
+          <NavLink to="/fruits">Go to fruits</NavLink>
+          </div>
+          <div>
+          <NavLink to="/disney">Go to Disney</NavLink>
+          </div>
+          <div>
+            <a href="/somthing">Go</a>
+          </div>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        
+         <div>
+           <Route path="/fruits" exact={true} component={Fruits}></Route>
+           <Route path="/fruits" exact={true}
+           render={()=><WelcomeMessage user={this.state.currentUser} extra={"I love routing"} end="Goodbye"></WelcomeMessage>}
+           ></Route>
+           <Route path="/disney" exact={true} 
+           render={(routeProps) =><Disney friend={this.state.currentUser} showGreeting={this.sayHello}
+           {...routeProps}
+           ></Disney>}
+           
+           ></Route>
+          {/* <Disney friend={this.state.currentUser} showGreeting={this.sayHello}/> */}
+         </div>
+        
+           
+        
+        <div>
+        <h1></h1>
+        
+        </div>
+        
+      </header>
+    </div>
+    </BrowserRouter>
+  );
+  }
+  
+}
+
+export default App;
+
+----------------------------------------------------------------------------------------
+Original App.jsx end
+
+componentDidUpdate(prevProps)
+    {
+      let currentPath = this.props.location.pathname;
+      let previousPath = prevProps.location.pathname;
+
+      console.log({previousPath, currentPath});
+    }
+
+onCurrentUserSuccess = (response) => {
+        console.log(response.data) }
+   
+      onCurrentUserError= (response) => {
+  
+    console.warn({ error: response })
+    }
+
+
+        userService.currentUser()
+        .then(this.onCurrentUserSuccess)
+        .catch(this.onCurrentUserError);
+       
+
+import {BrowserRouter, Route, NavLink} from "react-router-dom";
+
+
+
+
+
+
+
+
+<div><NavLink to="/navagation">Render Application</NavLink></div> 
+      <Route path="/navagation" exact={true} component={SiteNave}></Route>
+
+<main role="main">
+      <Route path="/navagation" exact={true} component={JumboComponent}></Route>
+
+
+      {/* <JumboComponent/> */}
+      
+      <Route path="/navagation" exact={true} component={ContentComponent}></Route>
+
+      {/* <ContentComponent/> */}
+      </main>
+      
+      <Route path="/navagation" exact={true} component={FooterComponent}></Route>
+
+      {/* <FooterComponent/> */}
+      <div><a href="/somthing">Reset</a></div>
+
+import JumboComponent from "./jumbo/JumboComponent";
+import ContentComponent from "./content/ContentComponent";
+import FooterComponent from "./footer/FooterComponent"
+
+ componentDidMount()
+  {
+
+    const data = {
+      "email": "clandestine@gov.com",
+      "password": "CodeOfHonor!64",
+      "tenantId": "JohnClancyInc64"
+    }
+    
+    
+    userService.logIn(data)
+    .then(this.onActionSuccess)
+    .catch(this.onActionError);
+  }
+
+onActionSuccess = (response) => {
+      console.log(response.data) }
+ 
+ onActionError= (response) => {
+
+  console.warn({ error: response });
+
+
+
+
+
+
+ORIGINAL NAVAGATION START!
+import React from "react";
+
+
+
+class SiteNave extends React.Component
+{
+    
+    render()
+    {
+        return(
+        <React.Fragment>
+<nav className="navbar navbar-expand-md navbar-dark bg-dark sabio">
+          <button className="link-button navbar-brand">Navbar</button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <button className="nav-link link-button">
+                  Home <span className="sr-only">(current)</span>
+                </button>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link link-button">Link</button>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link disabled">Disabled</button>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="http://example.com"
+                  id="dropdown01"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <div className="dropdown-menu" aria-labelledby="dropdown01">
+                  <button className="dropdown-item  link-button">Action</button>
+                  <button className="dropdown-item link-button">
+                    Another action
+                  </button>
+                  <button className="dropdown-item  link-button">
+                    Something else here
+                  </button>
+                </div>
+              </li>
+            </ul>
+            <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control mr-sm-2"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </nav>
+
+        </React.Fragment>
+        )
+    }
+}
+
+export default SiteNave;
+ORIGINAL NAVAGATION END!
