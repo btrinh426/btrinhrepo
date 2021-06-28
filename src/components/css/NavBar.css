@@ -1,0 +1,10 @@
+nav.navbar {
+    background-color: rgb(117, 196, 216) !important;
+    color: white;
+}
+a.nav-link{
+    color:white;
+}
+a.nav-link:hover {
+    color:rgb(207, 114, 7)
+}
