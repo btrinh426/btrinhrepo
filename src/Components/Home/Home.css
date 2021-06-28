@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Chango&display=swap");
+
+#loCon {
+    border-style: solid;
+    border-color: dodgerBlue;
+    border-radius: 40px;
+    border-width: 4px;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: rgba(10, 40, 117, 0.82);
+    max-width: 450px;
+}
+#tiDiv {
+    display: inline-flex;
+    align-items: center;
+}
+.tiText {
+    float: right;
+    margin: auto !important;
+    color: dodgerBlue;
+    font-family: Chango, cursive;
+}
+#tImg {
+    margin: auto;
+}
+#lButton {
+    margin: 20px 0px;
+}
+.lControl {
+    margin: 5px;
+}
+.rfCont {
+    border-style: solid;
+    border-color: dodgerBlue;
+    border-radius: 40px;
+    border-width: 4px;
+    padding: 20px;
+    max-width: 450px;
+    margin-top: 100px;
+    background-color: rgba(10, 40, 117, 0.82);
+}
+.rfTitle {
+    margin: auto;
+    display: flex;
+    position: flex-center;
+    color: dodgerBlue;
+    font-family: Chango, cursive;
+}
+.rfButton {
+    margin-top: 15px;
+}
+.welcome {
+    max-width: fit-content;
+
+    margin-top: 30px;
+    padding: 20px;
+    color: dodgerBlue;
+    font-family: Chango, cursive;
+    border-style: solid;
+    border-radius: 50px;
+    border-color: dodgerblue;
+    background-color: rgba(10, 40, 117, 0.287);
+    text-align: center;
+}
+.welcom .text {
+    float: right;
+}
+.welcome .img {
+    float: left;
+    border-radius: 50px 50px;
+}
+.welcont {
+    width: 100%;
+}
