@@ -1,0 +1,200 @@
+yar.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#homeButton,
+#searchButton {
+  color: white !important;
+  font-size: 1.25rem;
+}
+
+nav.navbar {
+  color: white !important;
+  background-color: #239cf3 !important;
+  justify-content: left !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+#myNavbarSide {
+  background-color: rgb(139 157 170) !important;
+  max-width: 10%;
+  min-width: 190px;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.my-label {
+  min-width: 68px !important;
+  vertical-align: middle !important;
+  margin-bottom: 0px !important;
+}
+
+.my-input-control {
+  margin-bottom: 0px !important;
+}
+
+.myHelpNote {
+  color: red !important;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+button.navbar-toggler:focus {
+  outline-style: none;
+}
+
+a.btn {
+  color: white !important;
+}
+
+.my-border-top {
+  border-top: 2px solid #9b9da0 !important;
+}
+
+.form-header {
+  background-color: rgb(8, 0, 0);
+  color: white;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  font-size: 2rem;
+  text-align: center;
+  min-height: 6rem;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #007bff;
+  font-size: 16px;
+  border: 1px solid #3e549a;
+  /* text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); */
+}
+
+.swal-footer {
+  text-align: center !important;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+nav.navbar {
+  color: white !important;
+  background-color: #239cf3 !important;
+  justify-content: left !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+.my-label {
+  min-width: 68px !important;
+  vertical-align: middle !important;
+  margin-bottom: 0px !important;
+}
+
+.my-input-control {
+  margin-bottom: 0px !important;
+}
+
+.myHelpNote {
+  color: red !important;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+button.navbar-toggler:focus {
+  outline-style: none;
+}
+
+a.btn {
+  color: white !important;
+}
+
+.my-border-top {
+  border-top: 2px solid #9b9da0 !important;
+}
+
+.form-header {
+  background-color: rgb(8, 0, 0);
+  color: white;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  font-size: 2rem;
+  text-align: center;
+  min-height: 6rem;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #007bff;
+  font-size: 16px;
+  border: 1px solid #3e549a;
+  /* text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); */
+}
+
+.swal-footer {
+  text-align: center !important;
+}
+
+button.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  /* margin: 0;
+  padding: 0; */
+  text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
