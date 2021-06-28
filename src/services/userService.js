@@ -1,0 +1,51 @@
+import axios from "axios";
+
+var usersService = {
+    endpoint: "https://api.remotebootcamp.dev/api/users"
+  };
+
+usersService.userLogin = () => {
+    console.log("login is executing");
+    const config = {
+      method: "POST",
+      url: `${usersService.endpoint}/login`,
+      data: {
+        email: "nitrospaz@hotmail.com",
+        password: "Sabio123$%",
+        tenantId: "U01JYBJ1M51",
+      },
+      crossdomain: true,
+      headers: { "Content-Type": "application/json" },
+    };
+  
+    return axios(config);
+  };
+  
+usersService.whoIsLoggedIn = () => {
+    console.log("who is logged in is executing");
+    const config = {
+      method: "GET",
+      url: `${usersService.endpoint}/current`,
+      crossdomain: true,
+      headers: { "Content-Type": "application/json" },
+    };
+  
+    return axios(config);
+  };
+  
+usersService.userLogout = () => {
+    console.log("logout is executing");
+    const config = {
+      method: "GET",
+      url: `${usersService.endpoint}/logout`,
+      crossdomain: true,
+      headers: { "Content-Type": "application/json" },
+    };
+  
+    return axios(config);
+  };
+  
+  
+
+  export {usersService}
+  
