@@ -1,0 +1,18 @@
+.friend-view {
+  background-color: gainsboro;
+  position: absolute;
+  top: 15%;
+  left: 9.5%;
+  width: 80%;
+}
+
+.friend-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  zoom: 60%;
+}
+
+.friend-cards-container > * {
+  margin: 2%;
+}
