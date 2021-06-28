@@ -1,0 +1,201 @@
+/* HTML TAGS */
+html, body {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.top-bar {
+  background-color: rgb(67, 195, 238);
+  height: 50px;
+  max-width: -webkit-fill-available;
+  position: relative;
+  display: flex;
+}
+#header h1 {
+  font-size: 20px;
+  padding-top: 13px;
+  padding-left: 40px;
+  color: white;
+}
+#header {
+  padding-right: 50px;
+}
+.bar-btns {
+  color: white;
+  background-color: rgb(67, 195, 238);
+  font-size: medium;
+  float: left;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+/* Footer */
+.foot > footer > p {
+  margin: 0%;
+  text-align: center;
+  border-top: 1px solid gray;
+}
+.foot {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  height: 60px;
+}
+
+/* NAV MANU */
+.nav-menu.active {
+  left: 0%;
+  transition: 350ms;
+}
+.nav-menu {
+  display: flex;
+  background-color: whitesmoke;
+  width: 200px;
+  height: 100%;
+  justify-content: center;
+  transition: 850ms;
+  left: -100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.rounded-circle {
+  width: 100px;
+  margin: 10px 0px 10px 50px;
+}
+
+.usersTitle h5 {
+  font-size: 17px;
+  text-align: center;
+}
+
+.nav-menu > ul {
+  padding: 0px;
+}
+#nav-title {
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(196, 194, 194);
+  padding-left: 18px;
+}
+.nav-text {
+  display: flex;
+  margin-left: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+.nav-text a {
+  color: rgb(148, 148, 148);
+  font-size: 18px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+}
+.nav-text.a:hover {
+  text-decoration: underline;
+}
+span {
+  margin-left: 16px;
+}
+
+/* Register */
+#head h1 {
+  font-size: 30px;
+  color: lightgray;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+.form {
+  margin-left: 10%;
+  max-width: 80%;
+}
+.form .row {
+  justify-content: center;
+}
+#body {
+  border: 1px groove gray;
+}
+.col-form-label {
+  padding-left: 0px;
+  text-align: center;
+}
+#casingsubmit  {
+  margin-right: 170px;
+}
+
+/* Login */
+.card {
+  border: 2px solid gray;
+  text-align: center;
+  border-radius: 15px;
+  width: 75%;
+  
+}
+.form-group {
+  padding: 10px;
+  margin: 0px;
+}
+.form-control-md {
+  width: 100%;
+  height: 40px;
+}
+.form-group .log-btns {
+  width: 100%;
+  text-align: center;
+}
+
+.form-group h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: gray;
+}
+.form-group svg {
+  color: gray;
+  position: absolute;
+  margin: -30px;
+  margin-top: 10px;
+}
+.login {
+  margin: 35%;
+  margin-top: 20px;
+}
+@media (min-width: 300px) {
+  .flex {
+    width: 350px;
+  }
+}
+.card-body {
+  padding: 0px;
+}
+.card-title {
+  height: 50px;
+  margin-bottom: 0px;
+  border-radius: 14px;
+}
+.card-title h5 {
+  padding: 7px;
+}
+.card-title h6 {
+  padding: 10px;
+  margin: 0;
+}
+#welcome {
+  background-color: black;
+  color: white;
+}
+#message {
+  background-color: rgb(250, 243, 243);
+  color: gray;
+  padding-top: 5px;
+}
+
+/* Home */
+.home {
+  margin-top: 100px;
+  margin-left: 300px;
+}
