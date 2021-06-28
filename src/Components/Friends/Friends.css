@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Chango&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    margin-left: auto;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+.link-button {
+    position: relative;
+    display: block;
+    text-align: left;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-bottom: 0 0 1px solid rgba(0, 0, 0, 0.226);
+}
+
+.link-button:hover,
+.link-button:focus {
+    z-index: 1;
+    text-decoration: none;
+    background-color: #e9ecef;
+}
+#user-img {
+    width: 75% !important;
+    height: 75% !important;
+    border-radius: 50%;
+}
+
+.ffTitle {
+    margin: auto;
+    display: flex;
+    position: flex-center;
+    color: dodgerBlue;
+    font-family: Chango, cursive;
+}
+
+.cards-row {
+    margin-top: 40px;
+}
+.friend-card {
+    margin-top: 20px;
+}
+.friend-pic {
+    width: 75% !important;
+    height: 75% !important;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
