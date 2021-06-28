@@ -1,0 +1,81 @@
+nav.sticky-top {
+  background-color: #308fef !important;
+}
+
+ul.navleft div.middle {
+  margin-top: 50px;
+}
+
+.vertical-menu {
+  width: 200px;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.container .right {
+  margin-top: 15px;
+}
+
+#homepageheading {
+  font-size: xx-large;
+  margin-left: 15px;
+}
+
+.fa-input {
+  font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif;
+}
+
+/* .avatar {
+  vertical-align: middle;
+  width: 175px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-left: 15px;
+} */
+
+/* user profile form text */
+
+.title {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 50px;
+}
+
+/* user profile bio form input */
+.lg-textarea {
+  overflow-y: visible;
+}
+.lg-textarea {
+  padding: 0;
+  resize: none;
+  min-height: 3rem;
+  caret-color: rgb(230, 49, 49);
+}
+
+/* primary image */
+
+/* #primaryimagehdg {
+  margin-top: 100px;
+  text-align: center;
+} */
+
+/* .createfriendimage {
+  font-size: 40px;
+  margin-left: 50px;
+} */
