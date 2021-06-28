@@ -1,0 +1,32 @@
+<script>
+    var car = {
+        year: 1969,
+        make: 'Ford',
+        model: 'Mustang',
+        trim: 'Convertable',
+        interior: 'Leather',
+        wheels: 'Mag Rims & Sports Tires'
+    }
+
+    // var {year} = car;
+    // console.log(year);
+
+    var printMake = ({make}) => console.log(make);
+    printMake(car);
+    
+    var [,sheez] = ['Laguna','Huntington','Newport']
+    console.log(sheez) // logs 'Newport'
+
+    var name = 'Gregorio'
+    var hobby = 'Coding'
+
+    var developer = {name, hobby};
+    console.log(developer);
+
+    var americanCars = ['Ford', 'Chevy','Dodge']
+    var europeanCars = ['Ferrari','Porsche','Audi']
+
+    var cars = [...americanCars, ...europeanCars];
+    console.log(cars)
+
+</script>
